@@ -1,0 +1,250 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 60px;
+    position: relative;
+    z-index: 1;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1600px;
+}
+
+.left-panel {
+    flex: 1;
+}
+
+.coordinates-panel {
+    width: 100%;
+    max-width: 2000px;
+    background-color: #f5f5f5;
+    padding: 70px;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    margin-bottom: 70px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.coordinates-panel h2 {
+    margin-top: 0;
+    margin-bottom: 70px;
+    color: #333;
+    font-size: 72px;
+    font-weight: 500;
+}
+
+#coordinatesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+}
+
+.curve-coordinates {
+    background-color: white;
+    padding: 60px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-width: 800px;
+    flex: 1;
+}
+
+.curve-coordinates h3 {
+    margin: 0 0 60px 0;
+    font-size: 54px;
+    font-weight: 500;
+    padding-bottom: 30px;
+    border-bottom: 4px solid #eee;
+}
+
+.coordinate-input {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.coordinate-input label {
+    width: 200px;
+    font-size: 42px;
+    color: #666;
+    font-weight: 400;
+}
+
+.coordinate-input input {
+    width: 200px;
+    padding: 20px;
+    border: 4px solid #ddd;
+    border-radius: 12px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 42px;
+}
+
+.coordinate-input input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 6px rgba(76, 175, 80, 0.1);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 150px);
+    grid-template-rows: repeat(10, 150px);
+    gap: 2px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: auto;
+}
+
+.grid-item {
+    background-color: #fff;
+    border: 1px solid #000;
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.grid-item[data-active="false"] {
+    background-color: #ccc;
+}
+
+/* Assicuriamoci che il body non abbia margini di default */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.bezier-point {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.control-point {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: blue;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: move;
+    z-index: 3;
+}
+
+svg {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 70px;
+}
+
+.panel-header h2 {
+    margin: 0;
+}
+
+.add-curve-button {
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 72px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.add-curve-button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.audio-control-panel {
+    background-color: #f5f5f5;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.audio-control-panel h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.control-group {
+    margin-bottom: 20px;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #666;
+}
+
+.control-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background-color: white;
+}
+
+.control-group input[type="range"] {
+    width: 100%;
+    margin-right: 10px;
+}
+
+.control-group span {
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+

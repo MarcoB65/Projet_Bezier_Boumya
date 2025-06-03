@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bezier Curves Music Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/tone"></script>
+</head>
+<body>
+    <div class="command-help" id="commandHelp">
+        <h2>Commandes</h2>
+        <ul>
+            <li><b>Espace</b> : Démarrer/arrêter le mouvement des points de contrôle</li>
+            <li><b>Flèche ↑</b> : Augmenter la vitesse</li>
+            <li><b>Flèche ↓</b> : Diminuer la vitesse</li>
+            <li><b>1</b>, <b>2</b>, <b>3</b> : Changer le mode de visualisation</li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="grid-container">
+            <svg></svg>
+            <!-- La griglia verrà generata dinamicamente -->
+        </div>
+    </div>
+    <script type="module" src="js/script.js"></script>
+</body>
+</html> 
